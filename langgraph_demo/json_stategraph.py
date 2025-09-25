@@ -15,9 +15,11 @@ import re
 from jinja2 import Template
 from langgraph.graph import StateGraph, END
 from langgraph.graph.message import add_messages
-from langchain_core.messages import AIMessage
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
+from langchain_openai import ChatOpenAI
 
 from .graph_loader import GraphLoader, GraphSpec, Node, Edge
+from .config import get_settings
 
 
 class JSONState(TypedDict):
@@ -29,6 +31,15 @@ class JSONState(TypedDict):
 class JSONStateGraphCompiler:
     def __init__(self, spec: GraphSpec):
         self.spec = spec
+        self.settings = get_settings()
+        self.router_llm: Optional[ChatOpenAI] = None
+        if self.settings.use_llm_routing:
+            model = self.settings.router_model_name or self.settings.model_name
+            self.router_llm = ChatOpenAI(
+                model=model,
+                temperature=self.settings.router_temperature,
+                api_key=self.settings.openai_api_key,
+            )
 
     # ===== Heuristics (shared with GraphRunner) =====
     def _extract_from_input(self, node: Node, user_text: str, vars: Dict[str, Any]) -> None:
@@ -100,6 +111,39 @@ class JSONStateGraphCompiler:
 
         return edges[0].target
 
+    # ===== Optional LLM router =====
+    def _llm_route(self, current_id: str, vars: Dict[str, Any]) -> Optional[str]:
+        if not self.router_llm:
+            return None
+        edges = self.spec.edges_from.get(current_id, [])
+        if not edges:
+            return None
+        options = [e.target for e in edges]
+        edge_lines = [f"{e.target}: {e.label or ''}" for e in edges]
+        sys_prompt = (
+            "You are a strict router. Choose the next node id from the provided options. "
+            "Return only a JSON object exactly like {\"next_node_id\": \"<id>\"}."
+        )
+        user_prompt = (
+            f"Current node: {current_id}\n" \
+            f"Vars: {vars}\n" \
+            f"Outgoing options (target_id: label):\n- " + "\n- ".join(edge_lines) + "\n" \
+            "Constraints:\n"
+            "- Pick exactly one next_node_id from the options.\n"
+            "- Do not invent ids."
+        )
+        try:
+            resp = self.router_llm.invoke([SystemMessage(content=sys_prompt), HumanMessage(content=user_prompt)])
+            text = (resp.content or "").strip()
+            # Basic JSON extraction without strict parsing (avoid dependency bloat)
+            m = re.search(r'\{\s*"next_node_id"\s*:\s*"([^"]+)"\s*\}', text)
+            if not m:
+                return None
+            nxt = m.group(1)
+            return nxt if nxt in options else None
+        except Exception:
+            return None
+
     # ===== Node factory =====
     def _make_node_fn(self, node_id: str):
         node = self.spec.nodes[node_id]
@@ -136,7 +180,12 @@ class JSONStateGraphCompiler:
     # ===== Router factory =====
     def _make_router_fn(self, node_id: str):
         def router(state: JSONState) -> str:
-            nxt = self._deterministic_route(node_id, state.get("vars", {}))
+            # Try LLM router first if enabled, otherwise deterministic.
+            nxt = None
+            if self.router_llm is not None:
+                nxt = self._llm_route(node_id, state.get("vars", {}))
+            if nxt is None:
+                nxt = self._deterministic_route(node_id, state.get("vars", {}))
             return nxt if nxt is not None else END
         return router
 

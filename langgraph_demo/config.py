@@ -17,6 +17,11 @@ class Settings(BaseSettings):
     temperature: float = Field(0.7, alias="TEMPERATURE")
     max_tokens: int = Field(1000, alias="MAX_TOKENS")
 
+    # Optional LLM Router Configuration
+    use_llm_routing: bool = Field(False, alias="USE_LLM_ROUTING")
+    router_model_name: Optional[str] = Field(None, alias="ROUTER_MODEL_NAME")
+    router_temperature: float = Field(0.0, alias="ROUTER_TEMPERATURE")
+
     # Pydantic settings configuration (v2)
     model_config = SettingsConfigDict(
         env_file=".env",
