@@ -22,6 +22,11 @@ class Settings(BaseSettings):
     router_model_name: Optional[str] = Field(None, alias="ROUTER_MODEL_NAME")
     router_temperature: float = Field(0.0, alias="ROUTER_TEMPERATURE")
 
+    # Optional Node-level LLM Speak (turn long prompts into concise assistant utterances)
+    use_node_llm_speak: bool = Field(False, alias="USE_NODE_LLM_SPEAK")
+    node_speak_model_name: Optional[str] = Field(None, alias="NODE_SPEAK_MODEL_NAME")
+    node_speak_temperature: float = Field(0.2, alias="NODE_SPEAK_TEMPERATURE")
+
     # Pydantic settings configuration (v2)
     model_config = SettingsConfigDict(
         env_file=".env",

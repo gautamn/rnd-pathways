@@ -40,6 +40,15 @@ class JSONStateGraphCompiler:
                 temperature=self.settings.router_temperature,
                 api_key=self.settings.openai_api_key,
             )
+        # Optional node-level LLM to convert long prompts into concise assistant utterances
+        self.speak_llm: Optional[ChatOpenAI] = None
+        if self.settings.use_node_llm_speak:
+            speak_model = self.settings.node_speak_model_name or self.settings.model_name
+            self.speak_llm = ChatOpenAI(
+                model=speak_model,
+                temperature=self.settings.node_speak_temperature,
+                api_key=self.settings.openai_api_key,
+            )
 
     # ===== Heuristics (shared with GraphRunner) =====
     def _extract_from_input(self, node: Node, user_text: str, vars: Dict[str, Any]) -> None:
@@ -152,10 +161,35 @@ class JSONStateGraphCompiler:
             vars = state.get("vars", {})
             raw_text = node.data.text or node.data.prompt
             if raw_text:
+                text = raw_text
+                # For non-end nodes, optionally transform long guidance into a concise assistant utterance
+                if not node.data.type.lower().startswith("end") and self.speak_llm is not None:
+                    sys_p = (
+                        "You are an assistant that speaks to a user. Given GUIDANCE, produce a single concise,"
+                        " conversational utterance to say next. Do not include headings or meta notes."
+                        " Keep it friendly and empathetic, and ask an open question if appropriate."
+                    )
+                    usr_p = (
+                        "GUIDANCE:\n" + raw_text + "\n\n"
+                        "If variables are relevant, consider them: " + str(vars)
+                    )
+                    try:
+                        resp = self.speak_llm.invoke([
+                            SystemMessage(content=sys_p),
+                            HumanMessage(content=usr_p),
+                        ])
+                        gen = (resp.content or "").strip()
+                        if gen:
+                            text = gen
+                    except Exception:
+                        # Fall back to template rendering
+                        pass
+                # Always try to render any {{vars}} in the text (supports end nodes too)
                 try:
-                    text = Template(raw_text).render(**vars)
+                    text = Template(text).render(**vars)
                 except Exception:
-                    text = raw_text
+                    # Keep original text if template fails
+                    pass
                 # Print prompt/output deterministically
                 print(f"\nAI: {text}\n")
                 state["response"] = text
