@@ -7,7 +7,7 @@ from rich.console import Console
 from rich.markdown import Markdown
 
 from .workflow import LangGraphWorkflow
-from .graph_loader import GraphLoader, GraphRunner
+from .json_stategraph import run_json_stategraph
 
 app = typer.Typer(help="LangGraph Demo CLI")
 console = Console()
@@ -76,9 +76,7 @@ def main(ctx: typer.Context):
 def run_graph(path: str = typer.Argument(..., help="Path to JSON graph file")):
     """Run a deterministic workflow from a JSON graph file."""
     try:
-        spec = GraphLoader.load(path)
-        runner = GraphRunner(spec)
-        runner.run_interactive()
+        run_json_stategraph(path)
     except Exception as e:
         console.print(f"[bold red]Error: {e}[/bold red]")
         raise typer.Exit(code=1)
