@@ -7,6 +7,7 @@ from rich.console import Console
 from rich.markdown import Markdown
 
 from .workflow import LangGraphWorkflow
+from .graph_loader import GraphLoader, GraphRunner
 
 app = typer.Typer(help="LangGraph Demo CLI")
 console = Console()
@@ -69,6 +70,18 @@ def main(ctx: typer.Context):
     # If no subcommand was provided, run chat by default.
     if ctx.invoked_subcommand is None:
         chat()
+
+
+@app.command("run-graph")
+def run_graph(path: str = typer.Argument(..., help="Path to JSON graph file")):
+    """Run a deterministic workflow from a JSON graph file."""
+    try:
+        spec = GraphLoader.load(path)
+        runner = GraphRunner(spec)
+        runner.run_interactive()
+    except Exception as e:
+        console.print(f"[bold red]Error: {e}[/bold red]")
+        raise typer.Exit(code=1)
 
 
 if __name__ == "__main__":

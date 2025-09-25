@@ -1,0 +1,185 @@
+{
+  "nodes": [
+    {
+      "id": "1",
+      "data": {
+        "name": "Start",
+        "text": "Hey there, let me know what development work you want to get it done.  You can say frontend, backend or AI related work.",
+        "isStart": true,
+        "modelOptions": {
+          "newTemperature": 0.2,
+          "skipUserResponse": false,
+          "disableSilenceRepeat": false,
+          "isSMSReturnNode": false,
+          "disableEndCallTool": false
+        },
+        "extractVarSettings": {},
+        "extractVars": [
+          [
+            "work_type",
+            "string",
+            "Could be any of the following\nFrontEnd\nBackEnd\nAI",
+            false
+          ]
+        ]
+      },
+      "type": "Default",
+      "position": {
+        "x": 420,
+        "y": 54.5
+      }
+    },
+    {
+      "id": "91943ef6-9a9a-482c-b21a-2893c5c78511",
+      "data": {
+        "name": "Assign To Vinay",
+        "prompt": "As its a backend work tell the customer you are assigning it to Vinay singh.",
+        "modelOptions": {
+          "newTemperature": 0.2,
+          "skipUserResponse": false,
+          "disableSilenceRepeat": false,
+          "isSMSReturnNode": false,
+          "disableEndCallTool": false
+        },
+        "extractVarSettings": {},
+        "extractVars": [
+          [
+            "user_name",
+            "string",
+            "Name of the user who has been assigned the work.",
+            false
+          ]
+        ]
+      },
+      "type": "Default",
+      "position": {
+        "x": 100.53090909090918,
+        "y": 302.23636363636365
+      }
+    },
+    {
+      "id": "70072320-aaa7-4f1c-bde0-9ef9f3490984",
+      "data": {
+        "name": "Assign to Shubham",
+        "prompt": "As its a backend work tell the customer you are assigning it to Shubham Singh.",
+        "modelOptions": {
+          "newTemperature": 0.2,
+          "skipUserResponse": false,
+          "disableSilenceRepeat": false,
+          "isSMSReturnNode": false,
+          "disableEndCallTool": false
+        }
+      },
+      "type": "Default",
+      "position": {
+        "x": 433.8793674797098,
+        "y": 489.4682033322675
+      }
+    },
+    {
+      "id": "ed69bc00-77ef-45f2-8733-04515785a0e3",
+      "data": {
+        "name": "Assign to Nitin",
+        "prompt": "As its a AI Related work tell the customer you are assigning it to Nitin Gautam.",
+        "modelOptions": {
+          "newTemperature": 0.2,
+          "skipUserResponse": false,
+          "disableSilenceRepeat": false,
+          "isSMSReturnNode": false,
+          "disableEndCallTool": false
+        }
+      },
+      "type": "Default",
+      "position": {
+        "x": 994.8220069494425,
+        "y": 430.0035587800977
+      }
+    },
+    {
+      "id": "43bbe605-ccad-4589-9e66-336307efa627",
+      "data": {
+        "name": "Work Assinged",
+        "prompt": "Tell the User You have Assigned the {{work_type}} to {{user_name}}  and say good bye.",
+        "modelOptions": {
+          "newTemperature": 0.2,
+          "skipUserResponse": false,
+          "disableSilenceRepeat": false,
+          "isSMSReturnNode": false,
+          "disableEndCallTool": false
+        }
+      },
+      "type": "End Call",
+      "position": {
+        "x": 248.5375216251624,
+        "y": 855.1289035963526
+      }
+    },
+    {
+      "globalConfig": {
+        "globalPrompt": ""
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "91943ef6-9a9a-482c-b21a-2893c5c78511",
+      "type": "custom",
+      "data": {
+        "label": "User Wants backend work to be done.",
+        "isHighlighted": false
+      },
+      "id": "reactflow__edge-1-91943ef6-9a9a-482c-b21a-2893c5c78511"
+    },
+    {
+      "source": "1",
+      "target": "70072320-aaa7-4f1c-bde0-9ef9f3490984",
+      "type": "custom",
+      "data": {
+        "label": "User Wants FrontEnd Work to be Done",
+        "isHighlighted": false
+      },
+      "id": "reactflow__edge-1-70072320-aaa7-4f1c-bde0-9ef9f3490984"
+    },
+    {
+      "source": "1",
+      "target": "ed69bc00-77ef-45f2-8733-04515785a0e3",
+      "type": "custom",
+      "data": {
+        "label": "User Wants AI Work to be Done",
+        "isHighlighted": false
+      },
+      "id": "reactflow__edge-1-ed69bc00-77ef-45f2-8733-04515785a0e3"
+    },
+    {
+      "source": "91943ef6-9a9a-482c-b21a-2893c5c78511",
+      "target": "43bbe605-ccad-4589-9e66-336307efa627",
+      "type": "custom",
+      "data": {
+        "label": "User responded",
+        "isHighlighted": false
+      },
+      "id": "reactflow__edge-91943ef6-9a9a-482c-b21a-2893c5c78511-43bbe605-ccad-4589-9e66-336307efa627"
+    },
+    {
+      "source": "ed69bc00-77ef-45f2-8733-04515785a0e3",
+      "target": "43bbe605-ccad-4589-9e66-336307efa627",
+      "type": "custom",
+      "data": {
+        "label": "User responded",
+        "isHighlighted": false
+      },
+      "id": "reactflow__edge-ed69bc00-77ef-45f2-8733-04515785a0e3-43bbe605-ccad-4589-9e66-336307efa627"
+    },
+    {
+      "source": "70072320-aaa7-4f1c-bde0-9ef9f3490984",
+      "target": "43bbe605-ccad-4589-9e66-336307efa627",
+      "type": "custom",
+      "data": {
+        "label": "User responded",
+        "isHighlighted": false
+      },
+      "id": "reactflow__edge-70072320-aaa7-4f1c-bde0-9ef9f3490984-43bbe605-ccad-4589-9e66-336307efa627"
+    }
+  ]
+}
