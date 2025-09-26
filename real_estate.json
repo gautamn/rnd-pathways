@@ -1,0 +1,778 @@
+{
+    "_id": {
+      "$oid": "68d2dc5adabb682a6a7850f1"
+    },
+    "id": 102,
+    "title": "Cheese",
+    "description": "Its an inboind call to a real estate",
+    "pathway_id": "b91f7f0f-cf2d-4989-8223-75207a558ac4",
+    "nodes": [
+      {
+        "x": 0,
+        "y": 0,
+        "id": "1",
+        "data": {
+          "name": "Start",
+          "prompt": "We're about to make a cold call to a potential client for APT Business Services. Our aim is to kick off the conversation on a friendly and enthusiastic note. Since we're likely speaking with a receptionist, making a good first impression is key.\nWait patiently for the receptionist to greet us first. Once they do, respond in a warm and casual manner by saying, 'Hi, it's Jess. How you going?' Use contractions and a natural tone to sound personable. Since we're in Australia, incorporate local expressions and be mindful of the current time and date.\nFor example, you might say, 'Hey, it's Jess. How you going?' or 'Hi there, Jess here. How's your day going?' Remember to use colloquial phrases common in Australia, like 'How you going?'\nMaintain a friendly and enthusiastic tone throughout the conversation. Use occasional fillers like 'uh' or 'um' to sound natural, but don't overdo it. Keep your questions direct and avoid overusing the receptionist's name. Lead with a brief acknowledgement, and avoid being repetitive at all costs.",
+          "isStart": true,
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 109,
+        "dragging": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "id": "d4f0b0d6-e22d-4625-95b9-a89545054790",
+        "data": {
+          "name": "Receptionist Response Handling",
+          "prompt": "After our greeting, the receptionist will likely respond. Our objective is to acknowledge their response appropriately and keep the conversation flowing naturally.\nListen carefully to what they say. If they respond with 'Good', 'Great thanks', 'Ok', 'Busy', or 'Alright', acknowledge with a brief and positive remark like 'That's great!' Keep the tone upbeat and enthusiastic.\nFor instance, if they say 'I'm good, thanks', we can reply, 'That's great!' or 'Glad to hear!' If they mention being busy, you might say 'I hear ya!' or 'Oh, I bet!'\nIf the receptionist responds with 'Good and you', 'Good and yourself', 'And you', or 'How are you going?', reply with 'Good for a busy {{today.day}}. Thanks for asking.' Use the current day of the week to make it more personable.\nMaintain a casual and friendly tone. Use contractions and Australian expressions. Keep your responses short and natural. Avoid being repetitive or overusing their name.",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 109,
+        "dragging": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "id": "0b6878e0-6118-44be-b58c-94dbf5712a95",
+        "data": {
+          "name": "Acknowledge Positive Response",
+          "prompt": "Since the receptionist responded positively or neutrally, we want to acknowledge that and smoothly transition the conversation forward.\nRespond with a brief and enthusiastic remark like 'That's great!' Keep it short and positive to maintain the friendly tone.\nFor example, say 'That's great!' or 'Glad to hear!' Avoid lengthy responses or overcomplicating your reply.\nMaintain an enthusiastic tone. Use contractions and keep it natural. Don't overuse fillers or their name.",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 109,
+        "dragging": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "id": "52fd19e0-4512-49c5-9d2f-9871778aba31",
+        "data": {
+          "name": "Reciprocal Greeting Response",
+          "prompt": "The receptionist has asked how we're doing, so we need to respond appropriately.\nReply with 'Good for a busy {{today.day}}. Thanks for asking.' Use the current day of the week to make the response more personable.\nFor example, 'Good for a busy Wednesday. Thanks for asking.' or 'Not bad for a Monday. Appreciate you asking.'\nKeep the tone friendly and natural. Use contractions and Australian expressions. Keep your response short and avoid overusing fillers.",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 109,
+        "dragging": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "id": "799719dc-971c-4d20-b0ad-5b03a46a9a51",
+        "data": {
+          "name": "Ask for Receptionist's Name",
+          "prompt": "Now, we need to know the receptionist's name to address them properly.\nPolitely ask for their name by saying something like 'Sorry, didn't grab your name?' Keep it casual and friendly, avoiding any formal tone.\nFor example, 'Oh, what's your name?' or 'Mind if I ask your name?'\nMaintain a friendly and informal tone. Use contractions and keep it natural. Avoid overusing fillers or their name.",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 109,
+        "dragging": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "id": "3be1ecc1-ff7e-4ddd-8000-a5e6bb4fc6cd",
+        "data": {
+          "name": "Acknowledge Receptionist's Name",
+          "prompt": "With their name now known, we want to acknowledge it and continue the conversation.\nRespond with 'Good to meet you, {{receptionist_name}}.' Use their name to make the interaction more personal.\nFor example, 'Nice to meet you, {{receptionist_name}}.' or 'Great chatting with you, {{receptionist_name}}.'\nKeep the tone friendly and enthusiastic. Use their name naturally but don't overdo it.",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 109,
+        "dragging": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "id": "eb1caf38-39a8-4f9a-a11d-d74811e5c9e3",
+        "data": {
+          "name": "State Reason for Call",
+          "prompt": "It's time to explain why we're calling. We want to do this in a friendly and non-pushy way.\nSay something like 'The reason for my call is I just wanted to get the business email address if I can, and if I wanted to send the email to the owner or boss, who would I address it to, {{receptionist_name}}?' Keep it friendly and casual.\nFor example, 'I'm just hoping to grab the business email address, and also, who should I address it to if I want to reach the owner?'\nMaintain a friendly and enthusiastic tone. Use contractions and keep it natural. Be polite and avoid being pushy.",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 109,
+        "dragging": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "id": "df5231aa-b42d-47c8-9e31-ac9b2ca2f214",
+        "data": {
+          "name": "Explain Purpose",
+          "prompt": "The receptionist is curious about our request. We need to provide a clear and friendly explanation.\nRespond by saying 'Thanks for asking, {{receptionist_name}}. I work for APT Business Services; we help people save up to 80% on processing their payroll. So, I'm wanting to send an email to the owner or boss to let them know about our services. Would that be okay?' Keep it friendly and non-pushy.\nFor example, 'Appreciate you asking, {{receptionist_name}}. I'm with APT Business Services. We help businesses save big on payroll processing. Just wanted to send your boss some info. Is that alright?'\nMaintain an enthusiastic and friendly tone. Use contractions and be polite. Avoid being pushy or aggressive.",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 109,
+        "dragging": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "id": "d7af1934-54e7-447d-a0ab-5499a36e6be6",
+        "data": {
+          "name": "Prepare to Receive Information",
+          "prompt": "The receptionist is ready to provide the owner's name and email. We need to show we're ready to take it down.\nRespond enthusiastically by saying 'Great, I'm pen ready!' or 'Awesome, ready when you are, {{receptionist_name}}.' Show appreciation and readiness.\nFor example, 'Fantastic, got my pen ready!' or 'Sweet, fire away when you're ready.'\nMaintain an enthusiastic and friendly tone. Use their name naturally and keep it casual.",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 109,
+        "dragging": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "id": "c4d30ba5-1bb8-42a5-b78e-1edba3ba35e4",
+        "data": {
+          "name": "Confirm Information",
+          "prompt": "With the owner's name and email provided, we need to confirm we've got it correctly.\nThank the receptionist and confirm the details. Say something like 'Got it, thanks!' or 'Appreciate that!'\nFor example, 'Great, thanks for that!' or 'Awesome, got it!'\nMaintain a friendly and appreciative tone. Keep it short and avoid overusing fillers.",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 109,
+        "dragging": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "id": "59636b35-0531-4eab-8f75-2904b59a0b46",
+        "data": {
+          "name": "Set Up Future Call",
+          "prompt": "Now that we have the owner's contact info, we can try to set up a future call.\nAsk, 'By the way, is there a chance I could book a quick three-minute call with {{owner_name}}?' Keep it casual and non-pushy.\nFor example, 'Any chance I could set up a brief chat with {{owner_name}}?' or 'Think I could grab a few minutes of {{owner_name}}'s time soon?'\nMaintain a friendly and enthusiastic tone. Use contractions and keep it natural. Avoid being pushy.",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 109,
+        "dragging": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "id": "f2a0ccf3-f202-4033-8fd2-4cdad92480fb",
+        "data": {
+          "name": "Schedule Call",
+          "prompt": "The receptionist agrees to schedule a call. We need to find out when.\nAsk 'Great, what time are you thinking?' Be ready to note down the time and date.\nFor example, 'Awesome, when works best?' or 'Sweet, what time suits?'\nMaintain an enthusiastic and friendly tone. Keep it casual and natural.",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 109,
+        "dragging": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "id": "0c8b8c60-330d-4fb2-92bb-bbdd90e2b2d2",
+        "data": {
+          "name": "Confirm Meeting Time",
+          "prompt": "We have a time for the future call. Confirm it and express gratitude.\nSay 'Thanks, {{receptionist_name}}. I'll call at {{time_of_phone_meeting}} on {{date_of_phone_meeting}} and we'll give it a go.'\nFor example, 'Great, I'll ring back then. Appreciate it!' or 'Thanks a bunch, chat then!'\nMaintain a friendly and appreciative tone. Use their name naturally and include the scheduled time and date.",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false
+          }
+        },
+        "type": "End Call",
+        "width": 320,
+        "height": 109,
+        "dragging": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "id": "b4e4a78d-63a7-41e9-9715-36389c20e1db",
+        "data": {
+          "name": "Handle Uncertainty",
+          "prompt": "The receptionist is uncertain or declines to schedule a call.\nRespond by saying 'No worries. What's the best way to get a hold of {{owner_name}} then?' Be polite and understanding.\nFor example, 'All good, how can I best reach {{owner_name}}?' or 'Sure thing, any suggestions on how to connect with {{owner_name}}?'\nMaintain a friendly and non-pushy tone. Use contractions and keep it casual.",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 109,
+        "dragging": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "id": "9a07d846-43b2-4fd1-b66e-93f2b07ba099",
+        "data": {
+          "name": "Graceful Exit",
+          "prompt": "The receptionist has declined to provide the information or help further.\nRespond politely by saying 'Sure, I understand. Have a great day, {{receptionist_name}}.'\nFor example, 'No worries, thanks for your time. Have a good one!' or 'All good, appreciate your time. Bye!'\nMaintain a friendly and understanding tone. Keep it short and polite.",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false
+          }
+        },
+        "type": "End Call",
+        "width": 320,
+        "height": 109,
+        "dragging": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "id": "e5d6f49f-96c0-4fc7-b017-766e41f883a2",
+        "data": {
+          "name": "Thank and End Call",
+          "prompt": "Regardless of the outcome, we need to thank the receptionist for their time and end the call politely.\nSay 'Thanks for your time, {{receptionist_name}}. Have a great day!'\nFor example, 'Appreciate your help, have a good one!' or 'Thanks, catch you later!'\nMaintain a friendly and appreciative tone. Keep it natural and polite.",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false
+          }
+        },
+        "type": "End Call",
+        "width": 320,
+        "height": 109,
+        "dragging": false,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "reactflow__edge-1-Receptionist Response Handling",
+        "data": {
+          "label": "Receptionist greets us",
+          "description": "Proceed once the receptionist has greeted us."
+        },
+        "type": "custom",
+        "source": "1",
+        "target": "d4f0b0d6-e22d-4625-95b9-a89545054790",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-d4f0b0d6-e22d-4625-95b9-a89545054790-Acknowledge Positive Response",
+        "data": {
+          "label": "Receptionist responds positively or neutrally",
+          "description": "If they say 'Good', 'Great thanks', 'Ok', 'Busy', or 'Alright', proceed accordingly."
+        },
+        "type": "custom",
+        "source": "d4f0b0d6-e22d-4625-95b9-a89545054790",
+        "target": "0b6878e0-6118-44be-b58c-94dbf5712a95",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-d4f0b0d6-e22d-4625-95b9-a89545054790-Reciprocal Greeting Response",
+        "data": {
+          "label": "Receptionist asks how we're doing",
+          "description": "If they say 'Good and you', 'Good and yourself', 'And you', or 'How are you going?', proceed accordingly."
+        },
+        "type": "custom",
+        "source": "d4f0b0d6-e22d-4625-95b9-a89545054790",
+        "target": "52fd19e0-4512-49c5-9d2f-9871778aba31",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-0b6878e0-6118-44be-b58c-94dbf5712a95-Ask for Receptionist's Name",
+        "data": {
+          "label": "Proceed to ask for receptionist's name",
+          "description": "After acknowledging, proceed to ask for their name if not already provided."
+        },
+        "type": "custom",
+        "source": "0b6878e0-6118-44be-b58c-94dbf5712a95",
+        "target": "799719dc-971c-4d20-b0ad-5b03a46a9a51",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-52fd19e0-4512-49c5-9d2f-9871778aba31-Ask for Receptionist's Name",
+        "data": {
+          "label": "Proceed to ask for receptionist's name",
+          "description": "After responding, proceed to ask for their name if not already provided."
+        },
+        "type": "custom",
+        "source": "52fd19e0-4512-49c5-9d2f-9871778aba31",
+        "target": "799719dc-971c-4d20-b0ad-5b03a46a9a51",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-799719dc-971c-4d20-b0ad-5b03a46a9a51-Acknowledge Receptionist's Name",
+        "data": {
+          "label": "Receptionist provides their name",
+          "description": "Proceed once they give us their name."
+        },
+        "type": "custom",
+        "source": "799719dc-971c-4d20-b0ad-5b03a46a9a51",
+        "target": "3be1ecc1-ff7e-4ddd-8000-a5e6bb4fc6cd",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-3be1ecc1-ff7e-4ddd-8000-a5e6bb4fc6cd-State Reason for Call",
+        "data": {
+          "label": "State reason for call",
+          "description": "After acknowledging, proceed to explain the reason for the call."
+        },
+        "type": "custom",
+        "source": "3be1ecc1-ff7e-4ddd-8000-a5e6bb4fc6cd",
+        "target": "eb1caf38-39a8-4f9a-a11d-d74811e5c9e3",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-eb1caf38-39a8-4f9a-a11d-d74811e5c9e3-Prepare to Receive Information",
+        "data": {
+          "label": "Receptionist agrees to provide info",
+          "description": "If they agree to provide the email and owner's name."
+        },
+        "type": "custom",
+        "source": "eb1caf38-39a8-4f9a-a11d-d74811e5c9e3",
+        "target": "d7af1934-54e7-447d-a0ab-5499a36e6be6",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-eb1caf38-39a8-4f9a-a11d-d74811e5c9e3-Explain Purpose",
+        "data": {
+          "label": "Receptionist asks why we need info",
+          "description": "If they ask 'Where are you from?', 'Why?', or 'Why do you want my boss's details?'"
+        },
+        "type": "custom",
+        "source": "eb1caf38-39a8-4f9a-a11d-d74811e5c9e3",
+        "target": "df5231aa-b42d-47c8-9e31-ac9b2ca2f214",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-eb1caf38-39a8-4f9a-a11d-d74811e5c9e3-Graceful Exit",
+        "data": {
+          "label": "Receptionist declines",
+          "description": "If they respond with 'No', 'Not right now', 'Not interested', etc."
+        },
+        "type": "custom",
+        "source": "eb1caf38-39a8-4f9a-a11d-d74811e5c9e3",
+        "target": "9a07d846-43b2-4fd1-b66e-93f2b07ba099",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-df5231aa-b42d-47c8-9e31-ac9b2ca2f214-Prepare to Receive Information",
+        "data": {
+          "label": "Receptionist agrees",
+          "description": "If they agree to provide the info."
+        },
+        "type": "custom",
+        "source": "df5231aa-b42d-47c8-9e31-ac9b2ca2f214",
+        "target": "d7af1934-54e7-447d-a0ab-5499a36e6be6",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-df5231aa-b42d-47c8-9e31-ac9b2ca2f214-Graceful Exit",
+        "data": {
+          "label": "Receptionist declines",
+          "description": "If they decline."
+        },
+        "type": "custom",
+        "source": "df5231aa-b42d-47c8-9e31-ac9b2ca2f214",
+        "target": "9a07d846-43b2-4fd1-b66e-93f2b07ba099",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-d7af1934-54e7-447d-a0ab-5499a36e6be6-Confirm Information",
+        "data": {
+          "label": "Receptionist provides info",
+          "description": "Proceed once they give us the owner's name and email."
+        },
+        "type": "custom",
+        "source": "d7af1934-54e7-447d-a0ab-5499a36e6be6",
+        "target": "c4d30ba5-1bb8-42a5-b78e-1edba3ba35e4",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-d7af1934-54e7-447d-a0ab-5499a36e6be6-Graceful Exit",
+        "data": {
+          "label": "Receptionist declines",
+          "description": "If they decide not to provide it after all."
+        },
+        "type": "custom",
+        "source": "d7af1934-54e7-447d-a0ab-5499a36e6be6",
+        "target": "9a07d846-43b2-4fd1-b66e-93f2b07ba099",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-c4d30ba5-1bb8-42a5-b78e-1edba3ba35e4-Set Up Future Call",
+        "data": {
+          "label": "Proceed to set up future call",
+          "description": "Attempt to schedule a future call with the owner."
+        },
+        "type": "custom",
+        "source": "c4d30ba5-1bb8-42a5-b78e-1edba3ba35e4",
+        "target": "59636b35-0531-4eab-8f75-2904b59a0b46",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-c4d30ba5-1bb8-42a5-b78e-1edba3ba35e4-Thank and End Call",
+        "data": {
+          "label": "End call",
+          "description": "If not setting up a call, proceed to end the conversation."
+        },
+        "type": "custom",
+        "source": "c4d30ba5-1bb8-42a5-b78e-1edba3ba35e4",
+        "target": "e5d6f49f-96c0-4fc7-b017-766e41f883a2",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-59636b35-0531-4eab-8f75-2904b59a0b46-Schedule Call",
+        "data": {
+          "label": "Receptionist agrees to schedule",
+          "description": "If they agree to set up a call."
+        },
+        "type": "custom",
+        "source": "59636b35-0531-4eab-8f75-2904b59a0b46",
+        "target": "f2a0ccf3-f202-4033-8fd2-4cdad92480fb",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-59636b35-0531-4eab-8f75-2904b59a0b46-Handle Uncertainty",
+        "data": {
+          "label": "Receptionist is uncertain or declines",
+          "description": "If they're unsure or decline."
+        },
+        "type": "custom",
+        "source": "59636b35-0531-4eab-8f75-2904b59a0b46",
+        "target": "b4e4a78d-63a7-41e9-9715-36389c20e1db",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-f2a0ccf3-f202-4033-8fd2-4cdad92480fb-Confirm Meeting Time",
+        "data": {
+          "label": "Receptionist provides time",
+          "description": "Proceed once they give a time and date."
+        },
+        "type": "custom",
+        "source": "f2a0ccf3-f202-4033-8fd2-4cdad92480fb",
+        "target": "0c8b8c60-330d-4fb2-92bb-bbdd90e2b2d2",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-b4e4a78d-63a7-41e9-9715-36389c20e1db-Thank and End Call",
+        "data": {
+          "label": "Receptionist provides alternative method",
+          "description": "If they provide another way to contact the owner."
+        },
+        "type": "custom",
+        "source": "b4e4a78d-63a7-41e9-9715-36389c20e1db",
+        "target": "e5d6f49f-96c0-4fc7-b017-766e41f883a2",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-b4e4a78d-63a7-41e9-9715-36389c20e1db-Thank and End Call",
+        "data": {
+          "label": "Receptionist can't help further",
+          "description": "If they can't offer any more assistance."
+        },
+        "type": "custom",
+        "source": "b4e4a78d-63a7-41e9-9715-36389c20e1db",
+        "target": "e5d6f49f-96c0-4fc7-b017-766e41f883a2",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      }
+    ],
+    "stars": 0,
+    "clones": 4,
+    "author": "Bingo Bangp",
+    "tags": [],
+    "user_id": "bef2093b-73dc-4a3f-9566-4aa7b25dfd1f",
+    "created_at": "2025-04-29T09:52:11.454Z"
+  }

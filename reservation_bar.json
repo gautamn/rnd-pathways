@@ -1,0 +1,325 @@
+{
+    "id": 4,
+    "title": "Bland Bistro Reservation bar",
+    "description": "This pathway shows how you can make reservations live during a call. We collect the date, time, and number of guests from the user, and use it to book the reservation.",
+    "pathway_id": "5a5c93f2-79a9-4619-ac01-a2717b4c45d3",
+    "nodes": [
+      {
+        "x": 420,
+        "y": 80,
+        "id": "1",
+        "data": {
+          "name": "Start",
+          "text": "Hey there, this is Not Bland Bistro reservation line. Do you want to make a reservation?",
+          "isStart": true,
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. "
+        },
+        "type": "Default",
+        "width": 200,
+        "height": 145,
+        "dragging": false,
+        "position": {
+          "x": 417.335512803719,
+          "y": 80
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 417.335512803719,
+          "y": 80
+        }
+      },
+      {
+        "x": 160,
+        "y": 340,
+        "id": "randomnode_1710288752186",
+        "data": {
+          "name": "Reservation Successful",
+          "prompt": "Tell the user that you have made the reservation for the given date and time, and the number of guests. \n\nTell them you look forward to seeing them and say goodbye",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. "
+        },
+        "type": "End Call",
+        "width": 200,
+        "height": 148,
+        "dragging": false,
+        "position": {
+          "x": 423.3478355391343,
+          "y": 1367.4871212983705
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 423.3478355391343,
+          "y": 1367.4871212983705
+        }
+      },
+      {
+        "id": "randomnode_1712264028449",
+        "data": {
+          "name": "Ask for reservation info",
+          "prompt": "Ask for the date, time, and number of guests. Ask each question one at a time.",
+          "condition": "You must get the date, time, and number of guests for this reservation",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. "
+        },
+        "type": "Default",
+        "width": 200,
+        "height": 148,
+        "dragging": false,
+        "position": {
+          "x": 417.971308341311,
+          "y": 449.17650406935036
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 417.971308341311,
+          "y": 449.17650406935036
+        }
+      },
+      {
+        "id": "randomnode_1712264120477",
+        "data": {
+          "url": "https://api.bland.ai/reservation",
+          "body": "{\n    \"date\" : \"{{date}}\",\n    \"time\" : \"{{time}}\",\n    \"guests\": {{number_of_people}}\n}",
+          "name": "Reservation Booking",
+          "text": "Please give me a moment as I check our bookings..",
+          "method": "POST",
+          "extractVars": [
+            [
+              "date",
+              "string",
+              "Desired Date of reservation, in MM/DD/YYYY format"
+            ],
+            [
+              "time",
+              "string",
+              "Desired Time of Reservation in 24HR Format e.g 13:30"
+            ],
+            [
+              "number_of_people",
+              "integer",
+              "Number of people for the reservation"
+            ]
+          ],
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "responseData": [
+            {
+              "data": "$.reserved",
+              "name": "reservation_success",
+              "context": ""
+            },
+            {
+              "data": "$.available_slots",
+              "name": "available_slots",
+              "context": "Available slots for the date provided"
+            }
+          ],
+          "responsePathways": [
+            [
+              "reservation_success",
+              "==",
+              "true",
+              {
+                "id": "randomnode_1710288752186",
+                "name": "Reservation Successful"
+              }
+            ],
+            [
+              "reservation_success",
+              "==",
+              "false",
+              {
+                "id": "randomnode_1712265110018",
+                "name": "Find new timeslot"
+              }
+            ]
+          ]
+        },
+        "type": "Webhook",
+        "width": 200,
+        "height": 200,
+        "dragging": false,
+        "position": {
+          "x": 373.3405111565752,
+          "y": 844.6562948069488
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 373.3405111565752,
+          "y": 844.6562948069488
+        }
+      },
+      {
+        "id": "randomnode_1712265110018",
+        "data": {
+          "name": "Find new timeslot",
+          "prompt": "Tell the user that there are no more slots for that given date and time. Give alternatives to the user given the available slots you have in your conversation history.",
+          "extractVars": [
+            [
+              "time",
+              "string",
+              "Time that the user wants to reserve for, in 24HR format e.g. 13:30"
+            ]
+          ],
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. "
+        },
+        "type": "Default",
+        "width": 200,
+        "height": 145,
+        "dragging": false,
+        "position": {
+          "x": -237.58648232581027,
+          "y": 1018.2203752129963
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": -237.58648232581027,
+          "y": 1018.2203752129963
+        }
+      },
+      {
+        "id": "randomnode_1712345912501",
+        "data": {
+          "kb": "Opening Hours : 9am - 5pm\nStore Locations : \n426 Ivy Street San Francisco, \nSan Jose",
+          "name": "Restaurant Questions",
+          "prompt": "Answer any questions that the user may have regarding the restaurant, by referring to the knowledge base you have. \n\nAnswer the question in 1 line, and then ask if they have any more questions.",
+          "isGlobal": true,
+          "globalLabel": "user has a question about the restaurant's hours or location",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. "
+        },
+        "type": "Knowledge Base",
+        "width": 200,
+        "height": 156,
+        "dragging": false,
+        "position": {
+          "x": 917.6497136115661,
+          "y": 247.58246028042902
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 917.6497136115661,
+          "y": 247.58246028042902
+        }
+      },
+      {
+        "id": "randomnode_1712350868928",
+        "data": {
+          "name": "Transfer Call",
+          "prompt": "Tell the user you will be transferring them to our agent to handle your request.",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. ",
+          "transferNumber": "9547953644"
+        },
+        "type": "Transfer Call",
+        "width": 200,
+        "height": 124,
+        "dragging": false,
+        "position": {
+          "x": 692.883096124662,
+          "y": 755.1856320467015
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 692.883096124662,
+          "y": 755.1856320467015
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "reactflow__edge-1-randomnode_1712264028449",
+        "data": {
+          "label": "user responded"
+        },
+        "type": "custom",
+        "source": "1",
+        "target": "randomnode_1712264028449",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-randomnode_1712265110018-randomnode_1712264120477",
+        "data": {
+          "label": "reserve"
+        },
+        "type": "custom",
+        "source": "randomnode_1712265110018",
+        "target": "randomnode_1712264120477",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-randomnode_1712264120477-randomnode_1712265110018",
+        "data": {
+          "label": "reservation_success == false"
+        },
+        "type": "custom",
+        "source": "randomnode_1712264120477",
+        "target": "randomnode_1712265110018",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-randomnode_1712264120477-randomnode_1710288752186",
+        "data": {
+          "label": "reservation_success == true"
+        },
+        "type": "custom",
+        "source": "randomnode_1712264120477",
+        "target": "randomnode_1710288752186",
+        "animated": true,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-randomnode_1712265110018-randomnode_1712265110018",
+        "data": {
+          "label": "user gives time slot not in available slots"
+        },
+        "type": "custom",
+        "source": "randomnode_1712265110018",
+        "target": "randomnode_1712265110018",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-randomnode_1712264028449-randomnode_1712264120477",
+        "data": {
+          "label": "number of guests less than 8"
+        },
+        "type": "custom",
+        "source": "randomnode_1712264028449",
+        "target": "randomnode_1712264120477",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-randomnode_1712264028449-randomnode_1712350868928",
+        "data": {
+          "label": "number of guests more than 8"
+        },
+        "type": "custom",
+        "source": "randomnode_1712264028449",
+        "target": "randomnode_1712350868928",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      }
+    ],
+    "stars": 4,
+    "clones": 359,
+    "author": "anun joshi",
+    "tags": [
+      "Support",
+      "Booking"
+    ],
+    "user_id": "91061099-de15-4d2d-9e31-939da68ba66b",
+    "created_at": "2024-07-09T18:29:13.020Z"
+  }

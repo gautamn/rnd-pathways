@@ -1,0 +1,818 @@
+{
+    "_id": {
+      "$oid": "68d2dc5adabb682a6a7850f7"
+    },
+    "id": 103,
+    "title": "restaurant",
+    "description": "kaka",
+    "pathway_id": "866bbc53-8c64-4c67-a902-1095bcbd282d",
+    "nodes": [
+      {
+        "x": 1470,
+        "y": 54.5,
+        "id": "1",
+        "data": {
+          "tag": null,
+          "name": "Start",
+          "text": "Hello, welcome to Madison Social. How can I assist you today?",
+          "active": false,
+          "isStart": true,
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. \n\nWhen speaking times, read them more clearly. For example, if it says 4:00 P.M., you should say \"four o'clock pee em\" or 10:00 AM as \"ten o'clock a em\"",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false,
+            "disableSilenceRepeat": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 126,
+        "dragging": false,
+        "position": {
+          "x": 1473.482202253185,
+          "y": 164.3640897925222
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 1473.482202253185,
+          "y": 164.3640897925222
+        }
+      },
+      {
+        "x": 2385,
+        "y": 263.5,
+        "id": "b424b8c9-8f7f-4b4b-8324-8bebf500f59c",
+        "data": {
+          "tag": null,
+          "name": "Takeout Intent",
+          "active": false,
+          "prompt": "**Order Taking with Allergy Awareness and Confirmation**\n\n**Step 1: Get Order Name and Confirm**\nFirst off, Ask the user for a name to associate with their order, and then confirm the name with them. If the user corrects you, apologize and ask again until you get it right.\n\n**Example Dialogue:**\nAgent: First, Could I get a name for the order today please?\nUser: Johnathan\nAgent: Just to confirm, your order name is \"Johnathan\", correct?\nUser: Yes, that's right.\n\n**Step 2: Allergy Awareness**\nBefore taking the user's order, ask about potential allergies and take note of them. If they have allergies, ask for specific details and inform the user throughout the order process if any items contain their specified allergen, referencing the knowledge base.\n\n**Example Dialogue:**\nAgent: Before we get started, do you have any food allergies I should be aware of?\nUser: Yes, I'm severely allergic to bacon.\nAgent: Thank you for letting me know. I'll make sure to note that. If any of our menu items contain bacon, I'll inform you.\n\n**Important:** Make this certain. When taking the user's order, inform them if any items they choose contain their specified allergen and recommend alternative options, referencing the knowledge base. Be sure to analyze all the ingredients of each menu item with the knowledge base to look for potential allergens or anything close to it.\n\nExample Dialogue:\n THIS IS AN EXAMPLE DO NOT USE THIS IN THE REAL CALL THIS IS JUST A CASE\nUser: Could I get the MadSo Burger?\nAgent: Before I add this item, I would like to let you know that the MadSo Burger contains applewood bacon. Would you like me to take the bacon off your order, or would you like to recommed you any alternatives?\nUser: Could you just take the bacon off please?\nAgent: Got it! I'll take note of that in your order.\n\n**Step 3: Take Order and Note Customizations**\nAsk the user for their desired items from the menu, taking note of any customizations or special instructions.\n\n**Example Dialogue:**\nAgent: What can I get for you today?\nUser: I'll have the veggie burger, but can I get it without nuts?\nAgent: Absolutely. I've noted that. Would you like to add any other items to your order?\n\n**Step 4: Handle Order Changes**\nIf the user changes their mind about an item after ordering, reassure them it's okay and ask what they'd like instead.\n\n**Example Dialogue:**\nUser: Wait, I don't want the veggie burger anymore. Can I get the chicken sandwich instead?\nAgent: No problem at all! I can change that for you. Would you like any customizations on the chicken sandwich?\n\n**Step 5: Confirm Order**\nOnce each item from the order is received, repeat the order back to the customer to confirm, including customizations, quantities, and any other relevant information. \n\nbefore moving on to the next node, make sure that the user confirms that the order is complete and they would not like to add anything else to the order after confirming.\n\n**Example Dialogue:**\nAgent: Just to confirm, you'd like the chicken sandwich without nuts, and a side of fries, correct?\nUser: That's right.\nAgent: Great! I've got your order. We'll get that prepared for you. Is there anything else you'd like to add to your order?\nUser: No, that's all.\nAgent: Alright! Your order is complete.\n\nonly continue if the user says that there is nothing else they would like to add to their order and everything else is confirmed\n\n\n\nTHESE ARE ALL THE MENU ITEMS TO USE IN REFERENCE TO THE KNOWLEDGE BASE TO CHECK FOR ALLERGIES. When asked about menu highlights/favorites or even regular items, do not read out the entire description, instead provide only relevant information so the response can remain concise:\nMenu Offerings: Madison Social offers a diverse selection of dishes and beverages to suit various preferences.\n\nLunch & Dinner:\nFrom the award winning BLT Dip to Hot Totty to the Madison Mule, our menus feature unique twists on classic pub fare. Healthy but here to party? Check out the Buffalo Chicken Salad.\n\nBLT Dip: Bacon, tomato, spinach, cream cheese, and Greek yogurt dip served with grilled Cuban loaf.\nMadSo Burger: 8 ounce chargrilled patty with applewood bacon, Havarti cheese, bourbon onion jam, herb aioli, dill pickle, tomato, and green leaf on a brioche bun.\nBuffalo Chicken Salad: Grilled or fried buffalo chicken with romaine, spring mix, carrot, tomato, cucumber, roasted corn, bleu cheese crumbles, red onion, shredded carrot, and house herb ranch dressing.\n\nWhen asked about menu highlights/favorites or even regular items, do not read out the entire description, instead provide only relevant information so the response can remain concise.\n\nEntire Lunch and Dinner Menu:\n\nSocial Plates\nBLT Dip Preview\nbacon, tomato, spinach, cream cheese and greek yogurt dip, grilled cuban loaf\n\nFat Fingers Preview\nhouse battered buttermilk fried chicken tenders, MadSo Peruvian green sauce\n\nWings on Woodward Preview\nold school buffalo, chipotle BBQ, spicy korean, honey lemon pepper\n\nKorean Cauliflower Preview\nbreaded and fried cauliflower florets, spicy korean sauce, sliced scallions, chipotle aioli\n\nSpin Dip Flatbread Preview\ncreamed spinach, artichoke, diced tomato, pepper-jack, vermont cheddar, grated parmesan\n\nChimi Hummus\nhouse made hummus, chimichurri herbs, tahini, crumbled feta, veggie dippers, tortilla chips\n\nHot Honey Shrimp\nfried buttermilk shrimp, chipotle honey glaze, arugula, herb aioli\n\nSandwiches\nMadSo Burger Preview\n8 ounce chargrilled patty, applewood bacon, havarti cheese, bourbon onion jam, herb aioli, dill pickle, tomato, green leaf, brioche bun\n\nBrisket Cheesesteak\nchopped brisket, american cheese, cherry pepper relish, cuban loaf\n\nSoVeg Burger\nhouse made chickpea + black bean patty, sliced cucumbers, spring mix, pickled red onions, tomato, chimi hummus, feta, brioche bun\n\nTurkey BLT\nsliced turkey breast, bibb lettuce, tomato, applewood bacon, white cheddar, herb aioli, sourdough bread\n\nSo Classic Burger Preview\nAmerican Cheese, Lettuce, Tomato, Onion and Our Chefs Special Sauce.\n\nPastrami Reuben Preview\nsliced pastrami, sauerkraut, Great Lakes swiss cheese, house-made thousand island dressing, buttered marbled rye\n\nReel Deal Mahi\ncajun spiced grilled or cornmeal fried mahi, red onion, tomato, bibb lettuce, pickled jalapeno tartar sauce, brioche bun\n\nThai Fried Chicken Sandwich\nginger garlic honey tossed fried chicken, red cabbage carrot slaw, herb aioli, brioche bun\n\nSpinach Artichoke Melt\nfresh mozzarella, tomato, spinach artichoke spread, parmesan crusted cuban loaf\n\nSurf & Turf Sandy\nsliced + marinated skirt steak, crispy fried shrimp, arugula, chipotle aioli, toasted sourdough\n\nFork & Knife\nBuffalo Chicken Salad\ngrilled or fried buffalo chicken, romaine, spring mix, carrot, tomato, cucumber, roasted corn, bleu crumbles, red onion, shredded carrot, house herb ranch\n\nGarlic Butter Steak Board\nmarinated + sliced steak, house made garlic herb compound butter, bistro fries\n\nGreen Goddess Chicken Caesar\ngrilled chicken, chopped romaine, kale, roasted corn, chopped cucumbers, house croutons, grated parm, house made green goddess caesar dressing.\n\nBrisket Burrito Bowl\ndry rubbed roasted brisket, stewed black beans, pico de gallo, sauteed peppers + onions, shredded cheddar jack, roasted corn, white rice, cilantro vinaigrette, scallions\n\nChicken Parm Plate\ncrispy chicken cutlet, mozzarella, marinara, garlic bread wedge, arugula parmesan salad, lemon vinaigrette\n\nSweets\nApple Pie Bread Pudding\nwarm apple compote, cinnamon vanilla custard, brown sugar oat crumble, vanilla ice cream\n\nSalted Caramel Pretzel Brownie Skillet\nhouse made fudge brownie, vanilla ice cream, salted caramel drizzle, pretzel crumbles\n\nSides\nGarlic Herb Bistro Fries\nSweet Potato Fries\nSide Salad\n\nBrunch:\n\n\nHighlights:\nGood Day Toast: Avocado, roasted sweet potato, bacon, goat cheese, arugula, sunflower seeds, and balsamic reduction on toast.\nBourbon Maple Chicken & Waffles: Buttermilk fried chicken, Belgian waffles, and bourbon maple syrup.\nCinnamon Roll Stack: Cinnamon roll pancakes with cream cheese icing.\n\nSpecialties:\nMadison Mule: Tito’s vodka, muddled cucumbers, agave nectar, lime juice, and ginger beer.\nHot Honey Peach Margarita: Misguided Reposado tequila, triple sec, hot honey, peach coulis, lime, and tajin.\nLavender Lemonade: Vodka, lavender, elderflower, peach liqueur-infused syrup, fresh lemon, and champagne.\n\nEntire Brunch menu: Rise & Shine\nHot Totty Preview\ngarlic-herb tossed tater tots, shredded brisket, charred jalapeño cheddar fondue, Sriracha drizzle, scallions\n\nBLT Dip Preview\nbacon, tomato, spinach, cream cheese and greek yogurt dip, grilled cuban loaf\n\nFat Fingers Preview\nhouse battered buttermilk fried chicken tenders, MadSo Peruvian green sauce\n\nKorean Cauliflower Preview\nbreaded and fried cauliflower florets, spicy korean sauce, sliced scallions, chipotle aioli\n\nWings on Woodward Preview\nold school buffalo, chipotle BBQ, spicy korean, honey lemon pepper\n\nStuffed Croissants\nhouse whipped cream filling, fresh berries, powdered sugar\n\nBrunch Mains\nGood Day Toast\nsoft boiled eggs, avocado feta spread, roasted balsamic cherry tomatoes, shaved red onion, sourdough toast, basil, grated parmesan, cilantro lime aioli drizzle\n\nBourbon Maple Chicken & Waffles\nbuttermilk fried chicken tenders, golden brown honey waffle, vanilla bourbon maple syrup, seasonal house butter, bacon brown sugar dust\n\nSkirt Steak Burrito\nscrambled eggs, grilled skirt steak, tater tots, cheddar jack, chipotle lime aioli, flour tortilla, house made pico de gallo, bistro fries\n\nCinnamon Roll Stack\ncinnamon swirled pancakes, cream cheese glaze, house whipped cream, powdered sugar\nFried Shrimp Benny\ncornmeal crusted fried shrimp, soft boiled eggs, arugula salad, pressed croissant, roasted red pepper hollandaise, green goddess caesar\n\nGlow Up Bowl\nsoft boiled eggs, roasted balsamic cherry tomatoes, everything seasoning dusted avocado, sauteed peppers and onions, feta, arugula, lemon vinaigrette, crispy tots\n\nAdd bacon +$5 / brisket +$6\n\nThat Egg Sando\nscrambled egg patty, applewood bacon, sausage patty, hash brown, American cheese, MadSo Peruvian sauce, challah bread, crispy tots\n\nMadSo Classics\nBuffalo Chicken Salad\ngrilled or fried buffalo chicken, romaine, spring mix, carrot, tomato, cucumber, roasted corn, bleu crumbles, red onion, shredded carrot, house herb ranch\n\nMadSo Burger Preview\n8 oz chargrilled patty, applewood bacon, havarti cheese, bourbon onion jam, herb aioli, dill pickle, tomato, green leaf, brioche bun\n\nSoVeg Burger\nhouse made chickpea + black bean patty, sliced cucumbers, spring mix, pickled red onions, tomato, chimi hummus, feta, brioche bun\n\nTurkey BLT\nsliced turkey breast, bibb lettuce, tomato, applewood bacon, white cheddar, herb aioli, sourdough bread\n\nSo Classic Burger Preview\nAmerican Cheese, Lettuce, Tomato, Onion and Our Chefs Special Sauce.\n\nSides\nTwo Eggs Scrambled\nTater Tots\nApplewood Bacon\nGarlic Herb Bistro Fries\nSweet Potato Fries\nSeared Sausage Patty\nSociables\nClassic Mimosa\nchampagne, choice of orange, cranberry, pineapple\n\nGrapefruit & Mint Mimosa\nchampagne, Ruby Red grapefruit juice, fresh mint\n\nLavender Lemonade Preview\nvodka, lavender, elderflower, peach liqueur infused syrup, fresh lemon, champagne\n\nEverything Bloody\nvodka, Zing Zang bloody mary mix, everything seasoning rim, \"everything\" skewer\nCold Brew\nadd vanilla or lavendar syrup\n\nBellini Spritz\nAperol, peach coulis, peach schnapps, lemon, sparkling wine, club soda\n\nVanilla Chai Latt-ini\nvodka, vanilla syrup, cardamom chai tea, oat milk, star anise\n\nLos Sundays\ncoconut infused tequila, cold brew, coconut puree, G.O.A.T. cream liqueur, toasted coconut\n\n\n\n\n",
+          "condition": "you must get all their order details and you can only move on when you have confirmed it with the user and the user agreed",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. \n\nWhen speaking times, read them more clearly. For example, if it says 4:00 P.M., you should say \"four o'clock pee em\" or 10:00 AM as \"ten o'clock a em\"",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false,
+            "disableSilenceRepeat": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 126,
+        "dragging": false,
+        "position": {
+          "x": 2398.333333333333,
+          "y": 260.1666666666667
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 2398.333333333333,
+          "y": 260.1666666666667
+        }
+      },
+      {
+        "x": 2845,
+        "y": 890.5,
+        "id": "0ff7c031-5235-4e57-af89-1fe72b7036cb",
+        "data": {
+          "tag": null,
+          "url": "https://hook.us2.make.com/by5h9dmh3k93dmwyj5tbuux6o0d72utq",
+          "body": "{\n    \"name\" : \"{{name}}\",\n    \"order\" : \"{{order}}\"\n}",
+          "name": "Confirm Order",
+          "text": "Please give me a moment while I confirm your order...",
+          "active": false,
+          "method": "POST",
+          "headers": [
+            [
+              "Content-Type",
+              "application/json"
+            ]
+          ],
+          "extractVars": [
+            [
+              "name",
+              "string",
+              "extract the users name from the conversation ",
+              false
+            ],
+            [
+              "order",
+              "string",
+              "extract exact items and details of the users order, note allergens and specific customizations ex. 1 MadSo Burger w/o bacon. Note: allergic to nuts, bacon.",
+              false,
+              false
+            ],
+            [
+              "bland-prompt",
+              "string",
+              "extract the users name from the conversation AND extract exact items and details of the users order, note allergens and specific customizations ex. 1 MadSo Burger w/o bacon. Note: allergic to nuts, bacon.",
+              false
+            ]
+          ],
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. \n\nWhen speaking times, read them more clearly. For example, if it says 4:00 P.M., you should say \"four o'clock pee em\" or 10:00 AM as \"ten o'clock a em\"",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false,
+            "disableSilenceRepeat": false
+          },
+          "responseData": [
+            {
+              "data": "",
+              "name": "",
+              "context": ""
+            }
+          ],
+          "timeoutValue": 10,
+          "responsePathways": [
+            [
+              "Default/Webhook Completion",
+              "",
+              "",
+              {
+                "id": "848a1fb1-67ad-4669-a771-92119f2f0920",
+                "name": "Order Successful"
+              }
+            ]
+          ],
+          "extractVarSettings": {}
+        },
+        "type": "Webhook",
+        "width": 320,
+        "height": 173,
+        "dragging": false,
+        "position": {
+          "x": 2394.518773826787,
+          "y": 557.2382042764931
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 2394.518773826787,
+          "y": 557.2382042764931
+        }
+      },
+      {
+        "x": 2855,
+        "y": 1099.5,
+        "id": "848a1fb1-67ad-4669-a771-92119f2f0920",
+        "data": {
+          "tag": null,
+          "name": "Order Successful",
+          "active": false,
+          "prompt": "Confirm the order details with the user, including their name, and send the order to the restaurant via the webhook. Provide the user with a pickup time of 15-20 minutes. Express excitement and gratitude in your tone. ask them if they have any more questions.\n\nDialogue Example:\n\"Awesome, just to confirm - your order is under [User's Name] and will be ready for pickup in 15-20 minutes. We've sent the order to the restaurant and they're getting started on it right away! Thanks so much for choosing Madison Social, and we're excited to see you soon! Do you have any more questions?",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. \n\nWhen speaking times, read them more clearly. For example, if it says 4:00 P.M., you should say \"four o'clock pee em\" or 10:00 AM as \"ten o'clock a em\"",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false,
+            "disableSilenceRepeat": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 126,
+        "dragging": false,
+        "position": {
+          "x": 2999.943723722071,
+          "y": 762.0131458522094
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 2999.943723722071,
+          "y": 762.0131458522094
+        }
+      },
+      {
+        "id": "c0a0ce41-7233-4a98-978c-10e17508b4ef",
+        "data": {
+          "kb": "Madison Social is a popular restaurant and social hub located in Tallahassee's vibrant CollegeTown district, catering to students, alumni, and families. \n\nLocation:\n\nAddress: 705 South Woodward Avenue, in Tallahassee, Florida \nLandmark: located in the heart of CollegeTown, near Florida State University.\n\nwhen asked for location, do not follow up by asking if they need directions. simply follow up about if they either have questions about parking, or their happy hour specials\n\nHours of Operation:\n\n\nMonday – Thursday: 11:30 AM – 12:00 AM\nFriday: 11:30 AM – 2:00 AM\nSaturday: 10:00 AM – 2:00 AM\nSunday: 10:00 AM – 12:00 AM\nMenu Offerings: Madison Social offers a diverse selection of dishes and beverages to suit various preferences.\n\nLunch & Dinner:\nFrom the award winning BLT Dip to Hot Totty to the Madison Mule, our menus feature unique twists on classic pub fare. Healthy but here to party? Check out the Buffalo Chicken Salad.\n\nBLT Dip: Bacon, tomato, spinach, cream cheese, and Greek yogurt dip served with grilled Cuban loaf.\nMadSo Burger: 8 ounce chargrilled patty with applewood bacon, Havarti cheese, bourbon onion jam, herb aioli, dill pickle, tomato, and green leaf on a brioche bun.\nBuffalo Chicken Salad: Grilled or fried buffalo chicken with romaine, spring mix, carrot, tomato, cucumber, roasted corn, bleu cheese crumbles, red onion, shredded carrot, and house herb ranch dressing.\n\nWhen asked about menu highlights/favorites or even regular items, do not read out the entire description, instead provide only relevant information so the response can remain concise.\n\nEntire Lunch and Dinner Menu:\n\nSocial Plates\nBLT Dip Preview\nbacon, tomato, spinach, cream cheese and greek yogurt dip, grilled cuban loaf\n\nFat Fingers Preview\nhouse battered buttermilk fried chicken tenders, MadSo Peruvian green sauce\n\nWings on Woodward Preview\nold school buffalo, chipotle BBQ, spicy korean, honey lemon pepper\n\nKorean Cauliflower Preview\nbreaded and fried cauliflower florets, spicy korean sauce, sliced scallions, chipotle aioli\n\nSpin Dip Flatbread Preview\ncreamed spinach, artichoke, diced tomato, pepper-jack, vermont cheddar, grated parmesan\n\nChimi Hummus\nhouse made hummus, chimichurri herbs, tahini, crumbled feta, veggie dippers, tortilla chips\n\nHot Honey Shrimp\nfried buttermilk shrimp, chipotle honey glaze, arugula, herb aioli\n\nSandwiches\nMadSo Burger Preview\n8 ounce chargrilled patty, applewood bacon, havarti cheese, bourbon onion jam, herb aioli, dill pickle, tomato, green leaf, brioche bun\n\nBrisket Cheesesteak\nchopped brisket, american cheese, cherry pepper relish, cuban loaf\n\nSoVeg Burger\nhouse made chickpea + black bean patty, sliced cucumbers, spring mix, pickled red onions, tomato, chimi hummus, feta, brioche bun\n\nTurkey BLT\nsliced turkey breast, bibb lettuce, tomato, applewood bacon, white cheddar, herb aioli, sourdough bread\n\nSo Classic Burger Preview\nAmerican Cheese, Lettuce, Tomato, Onion and Our Chefs Special Sauce.\n\nPastrami Reuben Preview\nsliced pastrami, sauerkraut, Great Lakes swiss cheese, house-made thousand island dressing, buttered marbled rye\n\nReel Deal Mahi\ncajun spiced grilled or cornmeal fried mahi, red onion, tomato, bibb lettuce, pickled jalapeno tartar sauce, brioche bun\n\nThai Fried Chicken Sandwich\nginger garlic honey tossed fried chicken, red cabbage carrot slaw, herb aioli, brioche bun\n\nSpinach Artichoke Melt\nfresh mozzarella, tomato, spinach artichoke spread, parmesan crusted cuban loaf\n\nSurf & Turf Sandy\nsliced + marinated skirt steak, crispy fried shrimp, arugula, chipotle aioli, toasted sourdough\n\nFork & Knife\nBuffalo Chicken Salad\ngrilled or fried buffalo chicken, romaine, spring mix, carrot, tomato, cucumber, roasted corn, bleu crumbles, red onion, shredded carrot, house herb ranch\n\nGarlic Butter Steak Board\nmarinated + sliced steak, house made garlic herb compound butter, bistro fries\n\nGreen Goddess Chicken Caesar\ngrilled chicken, chopped romaine, kale, roasted corn, chopped cucumbers, house croutons, grated parm, house made green goddess caesar dressing.\n\nBrisket Burrito Bowl\ndry rubbed roasted brisket, stewed black beans, pico de gallo, sauteed peppers + onions, shredded cheddar jack, roasted corn, white rice, cilantro vinaigrette, scallions\n\nChicken Parm Plate\ncrispy chicken cutlet, mozzarella, marinara, garlic bread wedge, arugula parmesan salad, lemon vinaigrette\n\nSweets\nApple Pie Bread Pudding\nwarm apple compote, cinnamon vanilla custard, brown sugar oat crumble, vanilla ice cream\n\nSalted Caramel Pretzel Brownie Skillet\nhouse made fudge brownie, vanilla ice cream, salted caramel drizzle, pretzel crumbles\n\nSides\nGarlic Herb Bistro Fries\nSweet Potato Fries\nSide Salad\n\nBrunch:\n\nHours: Saturday & Sunday: 10:00 AM – 4:00 PM\nHighlights:\nGood Day Toast: Avocado, roasted sweet potato, bacon, goat cheese, arugula, sunflower seeds, and balsamic reduction on toast.\nBourbon Maple Chicken & Waffles: Buttermilk fried chicken, Belgian waffles, and bourbon maple syrup.\nCinnamon Roll Stack: Cinnamon roll pancakes with cream cheese icing.\n\nSpecialties:\nMadison Mule: Tito’s vodka, muddled cucumbers, agave nectar, lime juice, and ginger beer.\nHot Honey Peach Margarita: Misguided Reposado tequila, triple sec, hot honey, peach coulis, lime, and tajin.\nLavender Lemonade: Vodka, lavender, elderflower, peach liqueur-infused syrup, fresh lemon, and champagne.\n\nEntire Brunch menu: Rise & Shine\nHot Totty Preview\ngarlic-herb tossed tater tots, shredded brisket, charred jalapeño cheddar fondue, Sriracha drizzle, scallions\n\nBLT Dip Preview\nbacon, tomato, spinach, cream cheese and greek yogurt dip, grilled cuban loaf\n\nFat Fingers Preview\nhouse battered buttermilk fried chicken tenders, MadSo Peruvian green sauce\n\nKorean Cauliflower Preview\nbreaded and fried cauliflower florets, spicy korean sauce, sliced scallions, chipotle aioli\n\nWings on Woodward Preview\nold school buffalo, chipotle BBQ, spicy korean, honey lemon pepper\n\nStuffed Croissants\nhouse whipped cream filling, fresh berries, powdered sugar\n\nBrunch Mains\nGood Day Toast\nsoft boiled eggs, avocado feta spread, roasted balsamic cherry tomatoes, shaved red onion, sourdough toast, basil, grated parmesan, cilantro lime aioli drizzle\n\nBourbon Maple Chicken & Waffles\nbuttermilk fried chicken tenders, golden brown honey waffle, vanilla bourbon maple syrup, seasonal house butter, bacon brown sugar dust\n\nSkirt Steak Burrito\nscrambled eggs, grilled skirt steak, tater tots, cheddar jack, chipotle lime aioli, flour tortilla, house made pico de gallo, bistro fries\n\nCinnamon Roll Stack\ncinnamon swirled pancakes, cream cheese glaze, house whipped cream, powdered sugar\nFried Shrimp Benny\ncornmeal crusted fried shrimp, soft boiled eggs, arugula salad, pressed croissant, roasted red pepper hollandaise, green goddess caesar\n\nGlow Up Bowl\nsoft boiled eggs, roasted balsamic cherry tomatoes, everything seasoning dusted avocado, sauteed peppers and onions, feta, arugula, lemon vinaigrette, crispy tots\n\nAdd bacon +$5 / brisket +$6\n\nThat Egg Sando\nscrambled egg patty, applewood bacon, sausage patty, hash brown, American cheese, MadSo Peruvian sauce, challah bread, crispy tots\n\nMadSo Classics\nBuffalo Chicken Salad\ngrilled or fried buffalo chicken, romaine, spring mix, carrot, tomato, cucumber, roasted corn, bleu crumbles, red onion, shredded carrot, house herb ranch\n\nMadSo Burger Preview\n8 oz chargrilled patty, applewood bacon, havarti cheese, bourbon onion jam, herb aioli, dill pickle, tomato, green leaf, brioche bun\n\nSoVeg Burger\nhouse made chickpea + black bean patty, sliced cucumbers, spring mix, pickled red onions, tomato, chimi hummus, feta, brioche bun\n\nTurkey BLT\nsliced turkey breast, bibb lettuce, tomato, applewood bacon, white cheddar, herb aioli, sourdough bread\n\nSo Classic Burger Preview\nAmerican Cheese, Lettuce, Tomato, Onion and Our Chefs Special Sauce.\n\nSides\nTwo Eggs Scrambled\nTater Tots\nApplewood Bacon\nGarlic Herb Bistro Fries\nSweet Potato Fries\nSeared Sausage Patty\nSociables\nClassic Mimosa\nchampagne, choice of orange, cranberry, pineapple\n\nGrapefruit & Mint Mimosa\nchampagne, Ruby Red grapefruit juice, fresh mint\n\nLavender Lemonade Preview\nvodka, lavender, elderflower, peach liqueur infused syrup, fresh lemon, champagne\n\nEverything Bloody\nvodka, Zing Zang bloody mary mix, everything seasoning rim, \"everything\" skewer\nCold Brew\nadd vanilla or lavendar syrup\n\nBellini Spritz\nAperol, peach coulis, peach schnapps, lemon, sparkling wine, club soda\n\nVanilla Chai Latt-ini\nvodka, vanilla syrup, cardamom chai tea, oat milk, star anise\n\nLos Sundays\ncoconut infused tequila, cold brew, coconut puree, G.O.A.T. cream liqueur, toasted coconut\n\nWhen asked about menu highlights/favorites or even regular items, do not read out the entire description, instead provide only relevant information so the response can remain concise.\n\nHappy Hour:\n\nHours: Monday – Friday: 4:00 PM – 7:00 PM\nSpecials:\n$2 off all wine\n$3 off all Sociables (signature cocktails)\n$4 wells and select shots\n$5 select drafts\n$6 call highballs (single liquor + mixer)\nWeekly Events:\n\nMonday: Half Off So Classic Burger\nTuesday: Tuesday Trivia Socials every Tuesday at 6:30 P.M.\nWednesday: $5 Select Challenge Drink\nThursday: So-Pitchers\nFriday: Crazy 8’s from 7:00 PM – 10:00 PM\nSaturday & Sunday: $12 mimosa pitchers from 10:00 AM – 4:00 PM\nSpecials and Promotions:\n\nMonthly Challenges: Unique food or drink challenges that change monthly.\nSeasonal Menus: Special menu items introduced during certain seasons or events.\nReservations and Contact Information:\n\nPhone: (850) 894-6276\nEmail: info@madisonsocial.com\nOnline Reservations: Available through the website.\n\nMonthly Challenge Information:\nThe Monthly Challenge is a Madison Social staple that started back in October of 2014. Every month we develop seven new drinks; everything from a specialty cocktail to a shot and beer or seltzer. Each month, the drinks are designed with a different theme and are paired with a shirt design that you earn that month.\n\nTo complete the challenge and earn the shirt, you must purchase all seven drinks by the last day of the month. In the event you complete the challenge and we do not have any shirts remaining, please follow the instructions on the back side of the challenge card to request your shirt and we will follow up with pick up instructions\n\nIf you are not able to come in to the restaurant to complete the challenge we have created a way for you to still get the challenge shirt. If you head to madisonsocial.com/challenge, you can purchase your challenge shirt there.\n\nIf inquired about the monthly challenge for January 2025, politely respond that the challenge is not currently out yet, but to check back on the website in a couple of days for the update.\n\nEmployment/Server Information:\nDirect the caller politely to their website where they are able to continue their application process, and follow with a happy remark that they are considering a position at Madison Social.\n\nAdditional Information:\n\nFamily-Friendly: Suitable for family dinners, accommodating both small and large groups.\nParking: Available in nearby parking garages and street parking.\nOutdoor Seating: Options available for outdoor dining.\nPrivate Events: Spaces available for booking private events and gatherings.",
+          "tag": null,
+          "name": "Restaurant Questions",
+          "active": false,
+          "prompt": "Answer any questions the user may have about the restaurant, such as hours of operation, location, menu, specials, etc., by referring to the knowledge base. Respond concisely in 1-2 lines.\n\nAfter answering the question, ask a follow-up question to encourage further inquiry, such as \"Is there anything else you'd like to know about our restaurant?\" or \"Can I help with anything else?\"\n\nIf the user asks multiple questions, vary the follow-up question to avoid repetition. For example:\n\nDialogue Example:\nUser: What are your hours of operation?\nAgent: We're open Monday through Thursday from 11am to 10pm, and Friday through Saturday from 11am to 11pm. Is there anything else you'd like to know about our restaurant?\nUser: Do you have any vegetarian options?\nAgent: Yes, we have a separate vegetarian menu. Would you like me to tell you more about it?\nUser: How do I get to your location?\nAgent: We're located at 123 Main St, just a block away from the city center. Can I help with anything else?\n\nNote: The follow-up questions should be varied to keep the conversation engaging and encourage the user to ask more questions.",
+          "isGlobal": true,
+          "globalLabel": "user has a question about the restaurant's hours, location, specials for that day, inquiries about the menu, parking",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. \n\nWhen speaking times, read them more clearly. For example, if it says 4:00 P.M., you should say \"four o'clock pee em\" or 10:00 AM as \"ten o'clock a em\"",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false,
+            "disableSilenceRepeat": false
+          }
+        },
+        "type": "Knowledge Base",
+        "width": 320,
+        "height": 126,
+        "dragging": false,
+        "position": {
+          "x": 1464.983703227585,
+          "y": 427.2063259397569
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 1464.983703227585,
+          "y": 427.2063259397569
+        }
+      },
+      {
+        "x": 160,
+        "y": 536.5,
+        "id": "94e6ed54-d60e-46bd-9e1e-7b96aca6fc91",
+        "data": {
+          "url": "https://hook.us2.make.com/akwcy4xu32euf5b2svk4ye1vuwrga9tj",
+          "body": "{\n    \"date\" : \"{{date}}\",\n    \"time\" : \"{{time}}\",\n    \"guests\": {{number_of_people}}\n}",
+          "name": "Reservation Booking",
+          "text": "Please give me a moment as I check our bookings..",
+          "active": false,
+          "method": "POST",
+          "headers": [
+            [
+              "Content-Type",
+              "application/json"
+            ]
+          ],
+          "extractVars": [
+            [
+              "date",
+              "string",
+              "Desired Date of reservation, in MM/DD/YYYY format"
+            ],
+            [
+              "time",
+              "string",
+              "Desired Time of Reservation in 24HR Format e.g 13:30"
+            ],
+            [
+              "number_of_people",
+              "integer",
+              "Number of people for the reservation"
+            ]
+          ],
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. \n\nWhen speaking times, read them more clearly. For example, if it says 4:00 P.M., you should say \"four o'clock pee em\" or 10:00 AM as \"ten o'clock a em\"",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2
+          },
+          "responseData": [
+            {
+              "data": "$.reserved",
+              "name": "reservation_success",
+              "context": ""
+            },
+            {
+              "data": "$.available_slots",
+              "name": "available_slots",
+              "context": "Available slots for the date provided"
+            }
+          ],
+          "timeoutValue": 10,
+          "responsePathways": [
+            [
+              "reservation_success",
+              "==",
+              "true",
+              {
+                "id": "b35068e3-59ae-4fed-9ad5-6df438156ba2",
+                "name": "Reservation Successful"
+              }
+            ],
+            [
+              "reservation_success",
+              "==",
+              "false",
+              {
+                "id": "58ad58a0-ebe5-494b-9073-85d87e2b168e",
+                "name": "Find new timeslot"
+              }
+            ]
+          ],
+          "extractVarSettings": {}
+        },
+        "type": "Webhook",
+        "width": 320,
+        "height": 155,
+        "dragging": false,
+        "position": {
+          "x": 744.547881200965,
+          "y": 670.5827355028948
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 744.547881200965,
+          "y": 670.5827355028948
+        }
+      },
+      {
+        "id": "462ed805-0721-40c3-a7f9-13927984d738",
+        "data": {
+          "tag": null,
+          "name": "Information on Reservation Policy",
+          "active": false,
+          "prompt": "Politely inform the user about the available reservation days and ask for their intention.\n\nWe accept reservations from Monday through Thursday. Unfortunately, we do not take reservations on weekends. If you were planning to schedule a reservation from Monday to Thursday, please respond with \"yes\". If you were planning to schedule a reservation for the weekend, please respond with \"no\".\n\nDialogue Example:\nAgent: \"Hello! We're happy to take your reservation. Please note that we're open for reservations from Monday to Thursday. We're unable to take reservations on weekends. Were you planning to schedule a reservation from Monday to Thursday?\"\nUser: [Responds with \"yes\" or \"no\"]",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. \n\nWhen speaking times, read them more clearly. For example, if it says 4:00 P.M., you should say \"four o'clock pee em\" or 10:00 AM as \"ten o'clock a em\"",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false,
+            "disableSilenceRepeat": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 126,
+        "dragging": false,
+        "position": {
+          "x": 740.8358613637652,
+          "y": 151.3849408484565
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 740.8358613637652,
+          "y": 151.3849408484565
+        }
+      },
+      {
+        "x": 545,
+        "y": 263.5,
+        "id": "ad3193db-3266-4857-b198-8f3f29c12e0b",
+        "data": {
+          "tag": null,
+          "name": "Ask for Reservation Info",
+          "active": false,
+          "prompt": "Gather Reservation Details: Ask the user for the date, time, and number of guests separately.\n\nDialogue Example:\nAgent: What date would you like to make a reservation for?\nUser: [Response]\nAgent: What time would you like to make a reservation for?\nUser: [Response]\nAgent: How many guests will be attending?\nUser: [Response]",
+          "condition": "You must get the date, time, and number of guests for this reservation",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. \n\nWhen speaking times, read them more clearly. For example, if it says 4:00 P.M., you should say \"four o'clock pee em\" or 10:00 AM as \"ten o'clock a em\"",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false,
+            "disableSilenceRepeat": false
+          },
+          "dialogueExamples": [
+            {
+              "Assistant Response": "I'm sorry, we are not able to make reservations for the weekends. ",
+              "Conversation History": "Friday"
+            }
+          ],
+          "conditionExamples": [
+            {
+              "Condition Achieved": "",
+              "Conversation History": ""
+            }
+          ]
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 126,
+        "dragging": false,
+        "position": {
+          "x": 745.5690056314024,
+          "y": 395.4699808248632
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 745.5690056314024,
+          "y": 395.4699808248632
+        }
+      },
+      {
+        "id": "2e00881e-9b4d-4211-9e2d-1c1816483d9f",
+        "data": {
+          "tag": null,
+          "name": "Alternate Options",
+          "active": false,
+          "prompt": "Tell the caller that you apologize for not being able to fulfill their original request. Then, offer alternative solutions by asking if they would like to schedule a reservation for a different date or if they would prefer to place an order for takeout instead.\n\nDialogue Example:\n\"I'm sorry we weren't able to accommodate your request. Would you like to schedule a reservation for a different date, or would you prefer to place an order for takeout instead?\"",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. \n\nWhen speaking times, read them more clearly. For example, if it says 4:00 P.M., you should say \"four o'clock pee em\" or 10:00 AM as \"ten o'clock a em\"",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false,
+            "disableSilenceRepeat": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 126,
+        "dragging": false,
+        "position": {
+          "x": 1674.957090630242,
+          "y": -465.8568914111581
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 1674.957090630242,
+          "y": -465.8568914111581
+        }
+      },
+      {
+        "id": "53e9a60d-536c-4208-9d46-08c7ac42892c",
+        "data": {
+          "tag": null,
+          "name": "Redirect to Website",
+          "active": false,
+          "prompt": "Apologize for Limitation on Same-Day Reservations\n\nInform the user that we cannot schedule reservations for more than 20 people on the same day. However, if they have a large group, they can email us with their party details and we'll respond with our availability for the specified date. Then ask them if they have any other questions.\n\n**Dialogue Example:**\n\"I apologize, but we're unable to schedule reservations for more than 20 people on the same day. If you have a larger group, please email us at info@madisonsocial.com with your party details and we'll get back to you with our availability for that date. Do you have any other questions?\"",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. \n\nWhen speaking times, read them more clearly. For example, if it says 4:00 P.M., you should say \"four o'clock pee em\" or 10:00 AM as \"ten o'clock a em\"",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false,
+            "disableSilenceRepeat": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 126,
+        "dragging": false,
+        "position": {
+          "x": 127.3668790962561,
+          "y": 455.0966158304236
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 127.3668790962561,
+          "y": 455.0966158304236
+        }
+      },
+      {
+        "id": "e07c6062-deca-447d-bec7-c4913a639b21",
+        "data": {
+          "tag": null,
+          "name": "New End Call Node",
+          "text": "Thank you for calling Madison Social. If you do have any other questions or would like to make another reservation or carryout order, please feel free to call us back. Goodbye.",
+          "active": false,
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. \n\nWhen speaking times, read them more clearly. For example, if it says 4:00 P.M., you should say \"four o'clock pee em\" or 10:00 AM as \"ten o'clock a em\"",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false,
+            "disableSilenceRepeat": false
+          }
+        },
+        "type": "End Call",
+        "width": 320,
+        "height": 126,
+        "dragging": false,
+        "position": {
+          "x": -270.6939706119036,
+          "y": 682.8653800653444
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": -270.6939706119036,
+          "y": 682.8653800653444
+        }
+      },
+      {
+        "x": 160,
+        "y": 777,
+        "id": "58ad58a0-ebe5-494b-9073-85d87e2b168e",
+        "data": {
+          "name": "Find new timeslot",
+          "active": false,
+          "prompt": "Tell the user that there are no more slots for that given date and time. Give alternatives to the user given the available slots you have in your conversation history.",
+          "extractVars": [
+            [
+              "time",
+              "string",
+              "Time that the user wants to reserve for, in 24HR format e.g. 13:30"
+            ]
+          ],
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. \n\nWhen speaking times, read them more clearly. For example, if it says 4:00 P.M., you should say \"four o'clock pee em\" or 10:00 AM as \"ten o'clock a em\""
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 126,
+        "dragging": false,
+        "position": {
+          "x": 394.9678150026193,
+          "y": 898.916807373845
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 394.9678150026193,
+          "y": 898.916807373845
+        }
+      },
+      {
+        "x": 710,
+        "y": 777,
+        "id": "b35068e3-59ae-4fed-9ad5-6df438156ba2",
+        "data": {
+          "name": "Reservation Successful",
+          "active": false,
+          "prompt": "Tell the user that you have made the reservation for the given date and time, and the number of guests. \n\nTell them you look forward to seeing them and say goodbye",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. \n\nWhen speaking times, read them more clearly. For example, if it says 4:00 P.M., you should say \"four o'clock pee em\" or 10:00 AM as \"ten o'clock a em\""
+        },
+        "type": "End Call",
+        "width": 320,
+        "height": 126,
+        "dragging": false,
+        "position": {
+          "x": 1121.833896961433,
+          "y": 915.9583963924465
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 1121.833896961433,
+          "y": 915.9583963924465
+        }
+      },
+      {
+        "id": "7ba99ab7-7c49-4917-98b6-00e23b37d395",
+        "data": {
+          "tag": null,
+          "name": "New Default Node",
+          "active": true,
+          "prompt": "answer any questions about the restaurant the user has based on the knowledge base of restaurant questions and make sure to follow all the instructions given on the knowledge base",
+          "globalPrompt": "This is a phone call. Do not use exclamation marks.\n\nConvert 24HR format timings to 12 HR format - e.g 14:00 should be written as 2 PM. \n\nWhen speaking times, read them more clearly. For example, if it says 4:00 P.M., you should say \"four o'clock pee em\" or 10:00 AM as \"ten o'clock a em\"",
+          "modelOptions": {
+            "modelType": "smart",
+            "temperature": 0.2,
+            "skipUserResponse": false,
+            "block_interruptions": false,
+            "disableSilenceRepeat": false
+          }
+        },
+        "type": "Default",
+        "width": 320,
+        "height": 128,
+        "dragging": false,
+        "position": {
+          "x": 2989.566886439261,
+          "y": 973.1503656545722
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 2989.566886439261,
+          "y": 973.1503656545722
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "reactflow__edge-1-Takeout Intent",
+        "data": {
+          "label": "user wants to place a takeout/carryout order",
+          "description": "Choose this pathway if the user expresses interest in placing a takeout/carryout order.",
+          "isHighlighted": false
+        },
+        "type": "custom",
+        "source": "1",
+        "target": "b424b8c9-8f7f-4b4b-8324-8bebf500f59c",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-b424b8c9-8f7f-4b4b-8324-8bebf500f59c-Order Assistance",
+        "data": {
+          "label": "user needs help with order details",
+          "description": "Choose this pathway if the user needs assistance with providing order details.",
+          "isHighlighted": false
+        },
+        "type": "custom",
+        "source": "b424b8c9-8f7f-4b4b-8324-8bebf500f59c",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-1-462ed805-0721-40c3-a7f9-13927984d738",
+        "data": {
+          "label": "user would like to make a reservation",
+          "description": "Choose this pathway when the user expresses interest in making a reservation.",
+          "isHighlighted": false
+        },
+        "type": "custom",
+        "source": "1",
+        "target": "462ed805-0721-40c3-a7f9-13927984d738",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-462ed805-0721-40c3-a7f9-13927984d738-ad3193db-3266-4857-b198-8f3f29c12e0b",
+        "data": {
+          "label": "User said yes",
+          "description": "choose this pathway if the user said yes",
+          "isHighlighted": false
+        },
+        "type": "custom",
+        "source": "462ed805-0721-40c3-a7f9-13927984d738",
+        "target": "ad3193db-3266-4857-b198-8f3f29c12e0b",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-462ed805-0721-40c3-a7f9-13927984d738-2e00881e-9b4d-4211-9e2d-1c1816483d9f",
+        "data": {
+          "label": "User said no",
+          "description": "Choose this pathway if the user said no or any variations of no. ex: nah, nope",
+          "isHighlighted": false
+        },
+        "type": "custom",
+        "source": "462ed805-0721-40c3-a7f9-13927984d738",
+        "target": "2e00881e-9b4d-4211-9e2d-1c1816483d9f",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-2e00881e-9b4d-4211-9e2d-1c1816483d9f-b424b8c9-8f7f-4b4b-8324-8bebf500f59c",
+        "data": {
+          "label": "User wants to place an order for takeout",
+          "description": "Choose this pathway if the user expresses interest in placing a takeout order instead.",
+          "isHighlighted": false
+        },
+        "type": "custom",
+        "source": "2e00881e-9b4d-4211-9e2d-1c1816483d9f",
+        "target": "b424b8c9-8f7f-4b4b-8324-8bebf500f59c",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-2e00881e-9b4d-4211-9e2d-1c1816483d9f-ad3193db-3266-4857-b198-8f3f29c12e0b",
+        "data": {
+          "label": "user wants to reservation for a different date",
+          "description": "choose this pathway if the user wants to schedule a reservation for a different date",
+          "isHighlighted": false
+        },
+        "type": "custom",
+        "source": "2e00881e-9b4d-4211-9e2d-1c1816483d9f",
+        "target": "ad3193db-3266-4857-b198-8f3f29c12e0b",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-ad3193db-3266-4857-b198-8f3f29c12e0b-94e6ed54-d60e-46bd-9e1e-7b96aca6fc91",
+        "data": {
+          "label": "number of guests less than 20, provides date, time, and number of guests",
+          "description": "user asks for a reservation of 20 guests or less, and provides date, time, and number of guests",
+          "isHighlighted": false
+        },
+        "type": "custom",
+        "source": "ad3193db-3266-4857-b198-8f3f29c12e0b",
+        "target": "94e6ed54-d60e-46bd-9e1e-7b96aca6fc91",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-ad3193db-3266-4857-b198-8f3f29c12e0b-53e9a60d-536c-4208-9d46-08c7ac42892c",
+        "data": {
+          "label": "number of guests more than 20",
+          "description": "user asks for a reservation of 20 guests or more",
+          "isHighlighted": false
+        },
+        "type": "custom",
+        "source": "ad3193db-3266-4857-b198-8f3f29c12e0b",
+        "target": "53e9a60d-536c-4208-9d46-08c7ac42892c",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-53e9a60d-536c-4208-9d46-08c7ac42892c-e07c6062-deca-447d-bec7-c4913a639b21",
+        "data": {
+          "label": "user said no",
+          "description": "user responded with no or any other variations of no such as nah or nope",
+          "isHighlighted": false
+        },
+        "type": "custom",
+        "source": "53e9a60d-536c-4208-9d46-08c7ac42892c",
+        "target": "e07c6062-deca-447d-bec7-c4913a639b21",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "fe256117-6698-433a-b274-c756e344e8d7",
+        "data": {
+          "label": "user gives time slot not in available slots",
+          "isHighlighted": false
+        },
+        "type": "custom",
+        "source": "58ad58a0-ebe5-494b-9073-85d87e2b168e",
+        "target": "58ad58a0-ebe5-494b-9073-85d87e2b168e",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-b424b8c9-8f7f-4b4b-8324-8bebf500f59c-0ff7c031-5235-4e57-af89-1fe72b7036cb",
+        "data": {
+          "label": "user provides all order details including entire name and customizations and allergies",
+          "description": "choose this pathway when the user has confirmed both their name and all their order details, and has confirmed they would not like to add anything else to their order",
+          "isHighlighted": false
+        },
+        "type": "custom",
+        "source": "b424b8c9-8f7f-4b4b-8324-8bebf500f59c",
+        "target": "0ff7c031-5235-4e57-af89-1fe72b7036cb",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-848a1fb1-67ad-4669-a771-92119f2f0920-e07c6062-deca-447d-bec7-c4913a639b21",
+        "data": {
+          "label": "User said no",
+          "description": "choose this pathway if the user responds with no or any variations of no when asked if they have any more questions",
+          "isHighlighted": false
+        },
+        "type": "custom",
+        "source": "848a1fb1-67ad-4669-a771-92119f2f0920",
+        "target": "e07c6062-deca-447d-bec7-c4913a639b21",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-848a1fb1-67ad-4669-a771-92119f2f0920-7ba99ab7-7c49-4917-98b6-00e23b37d395",
+        "data": {
+          "label": "User said yes",
+          "description": "the user asks a question or expresses interest in having a question",
+          "isHighlighted": false
+        },
+        "type": "custom",
+        "source": "848a1fb1-67ad-4669-a771-92119f2f0920",
+        "target": "7ba99ab7-7c49-4917-98b6-00e23b37d395",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-94e6ed54-d60e-46bd-9e1e-7b96aca6fc91-b35068e3-59ae-4fed-9ad5-6df438156ba2",
+        "data": {
+          "label": "reservation_success == true",
+          "isHighlighted": false
+        },
+        "type": "custom",
+        "source": "94e6ed54-d60e-46bd-9e1e-7b96aca6fc91",
+        "target": "b35068e3-59ae-4fed-9ad5-6df438156ba2",
+        "animated": true,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-94e6ed54-d60e-46bd-9e1e-7b96aca6fc91-58ad58a0-ebe5-494b-9073-85d87e2b168e",
+        "data": {
+          "label": "reservation_success == false",
+          "isHighlighted": false
+        },
+        "type": "custom",
+        "source": "94e6ed54-d60e-46bd-9e1e-7b96aca6fc91",
+        "target": "58ad58a0-ebe5-494b-9073-85d87e2b168e",
+        "animated": true,
+        "sourceHandle": null,
+        "targetHandle": null
+      },
+      {
+        "id": "reactflow__edge-0ff7c031-5235-4e57-af89-1fe72b7036cb-848a1fb1-67ad-4669-a771-92119f2f0920",
+        "data": {
+          "label": "order_success == true",
+          "description": ""
+        },
+        "type": "custom",
+        "source": "0ff7c031-5235-4e57-af89-1fe72b7036cb",
+        "target": "848a1fb1-67ad-4669-a771-92119f2f0920",
+        "animated": true,
+        "selected": false,
+        "sourceHandle": null,
+        "targetHandle": null
+      }
+    ],
+    "stars": 0,
+    "clones": 11,
+    "author": "KARAN PAL SINGH GURAYA",
+    "tags": [],
+    "user_id": "d07ed796-215e-4b29-9024-6a23501e1233",
+    "created_at": "2025-05-14T04:09:43.131Z"
+  }
